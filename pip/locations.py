@@ -72,7 +72,7 @@ def _get_build_prefix():
         tempfile.gettempdir(),
         'pip_build_%s' % __get_username()
     )
-    if sys.platform == 'win32':
+    if sys.platform == 'win32' or (os.name == 'java' and os._name == 'nt'):
         """ on windows(tested on 7) temp dirs are isolated """
         return path
     try:
